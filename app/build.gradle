@@ -20,7 +20,7 @@ android {
 
     buildTypes {
         all {
-            buildConfigField 'String', 'BASE_URL', '"https://example.someapi"'
+            buildConfigField 'String', 'BASE_URL', '"https://api.openweathermap.org/data/2.5/"'
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

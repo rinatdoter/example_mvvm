@@ -5,6 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import kg.itc.examplemvvm.BuildConfig
+import kg.itc.examplemvvm.data.network.ForeCastApi
 import kg.itc.examplemvvm.data.network.UserApi
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,6 +21,11 @@ class NetworkModule {
 
     @Provides
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+    @Provides
+    fun provideForeCastApi(retrofit: Retrofit): ForeCastApi = retrofit.create(ForeCastApi::class.java)
+
+
 
     @Provides
     @Singleton
