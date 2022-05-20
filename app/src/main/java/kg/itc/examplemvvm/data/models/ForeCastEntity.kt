@@ -18,7 +18,6 @@ data class ForeCastEntity(
 )
 
 data class CurrentForeCastEntity(
-    @SerializedName("dt")
     var date: Long? = null,
     var sunrise: Long? = null,
     var sunset: Long? = null,

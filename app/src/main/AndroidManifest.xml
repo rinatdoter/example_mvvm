@@ -11,10 +11,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ExampleMvvm" >
+        android:theme="@style/AppTheme" >
 
         <activity
-            android:name=".ui.main.MainActivity"
+            android:name=".ui.main.AppActivity"
             android:launchMode="singleTask"
             android:exported="true">
             <intent-filter>

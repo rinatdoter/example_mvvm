@@ -18,6 +18,9 @@ class StorageModule {
     fun provideUserDao(appDatabase: AppDatabase) = appDatabase.userDao()
 
     @Provides
+    fun provideForeCastDao(appDatabase: AppDatabase) = appDatabase.foreCastDao()
+
+    @Provides
     @Singleton
     fun provideAppDatabase(context: Application) =
         Room.databaseBuilder(

@@ -1,5 +1,8 @@
 package kg.itc.examplemvvm.domain.models
 
+import kg.itc.examplemvvm.extensions.format
+import kotlin.math.roundToInt
+
 data class ForeCast(
     val id: Long? = null,
     var lat: Double? = null,
@@ -7,8 +10,38 @@ data class ForeCast(
     var timezone: String,
     var current: CurrentForeCast? = null,
     var hourly: List<HourlyForeCast>? = null,
-    var dailyDto: List<DailyForeCast>? = null
-)
+    var daily: List<DailyForeCast>? = null
+){
+
+    val temperature: String?
+    get() = current?.temp?.roundToInt()?.toString()
+
+    val currentDate: String?
+    get() = current?.date?.format()
+
+    val tempMax: String?
+    get() = daily?.get(0)?.temp?.max?.roundToInt()?.toString()
+
+    val tempMin: String?
+    get()= daily?.get(0)?.temp?.min?.roundToInt()?.toString()
+
+    val feelsLike: String?
+    get() = current?.feels_like?.roundToInt()?.toString()
+
+    val weatherDescription: String?
+    get() = current?.weather?.get(0)?.description
+
+    val sunrise: String?
+    get() = current?.sunrise?.format("hh:mm")
+
+    val sunset: String?
+    get() = current?.sunset?.format("hh:mm")
+
+    val humidity: String
+    get() =  current?.humidity?.toString() ?: ""
+
+}
+
 
 
 data class CurrentForeCast(

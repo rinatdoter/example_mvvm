@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 
-open class BaseFragment<viewModel: ViewModel, viewBinding: ViewBinding>(
+open class BaseFragment<viewModel: BaseVM, viewBinding: ViewBinding>(
     private val vmClass: Class<viewModel>,
     inline val bindingCreator: (inflater: LayoutInflater) -> viewBinding
 ): Fragment() {
@@ -34,9 +34,22 @@ open class BaseFragment<viewModel: ViewModel, viewBinding: ViewBinding>(
         return binding.root
     }
 
-    open fun showLoading(){
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        subscribeToIsLoadingLiveData()
     }
+
+    private fun subscribeToIsLoadingLiveData() {
+        vm.isLoading.observe(viewLifecycleOwner,{
+            when(it){
+                true -> showLoading()
+                false -> hideLoading()
+            }
+        })
+    }
+
+    protected open fun showLoading(){}
+    protected open fun hideLoading(){}
 
     override fun onDestroyView() {
         super.onDestroyView()

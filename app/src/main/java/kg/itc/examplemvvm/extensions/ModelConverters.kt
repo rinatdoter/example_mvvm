@@ -27,9 +27,12 @@ fun ForeCastDto.toForeCast(): ForeCast{
         lon,
         timezone,
         current?.toCurrentForeCast(),
-        hourly?.map { it.toHourlyForeCast() }
+        hourly?.map { it.toHourlyForeCast()},
+        daily?.map { it.toDailyForeCast() },
     )
+
 }
+
 
 fun CurrentForeCastDto.toCurrentForeCast(): CurrentForeCast{
     return CurrentForeCast(
@@ -45,6 +48,25 @@ fun HourlyForeCastDto.toHourlyForeCast(): HourlyForeCast{
     return HourlyForeCast(
         date,
         temp,
-        weather?.map { it.toWeather() }
+        weather?.map { it.toWeather() },
+        probability
     )
 }
+
+fun DailyForeCastDto.toDailyForeCast(): DailyForeCast{
+    return DailyForeCast(
+        date,
+        temp?.toTemperature(),
+        weather?.map { it.toWeather()},
+        probability
+
+    )
+}
+
+fun TemperatureDto.toTemperature(): Temperature{
+    return Temperature(
+        min,
+        max
+    )
+}
+

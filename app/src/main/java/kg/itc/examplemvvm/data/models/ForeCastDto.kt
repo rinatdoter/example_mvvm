@@ -12,7 +12,7 @@ data class ForeCastDto(
     var timezone_offset: Long? = null,
     var current: CurrentForeCastDto? = null,
     var hourly: List<HourlyForeCastDto>? = null,
-    var dailyDto: List<DailyForeCastDto>? = null
+    var daily: List<DailyForeCastDto>? = null
 )
 
 

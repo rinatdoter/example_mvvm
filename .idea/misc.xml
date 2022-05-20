@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/rinat/Desktop/workplace/ExampleMvvm/app/src/main/res/drawable/celcius_24dp.xml" value="0.2523076923076923" />
         <entry key="..\:/Users/rinat/Desktop/workplace/ExampleMvvm/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/rinat/Desktop/workplace/ExampleMvvm/app/src/main/res/layout/fragment_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/rinat/Desktop/workplace/ExampleMvvm/app/src/main/res/layout/fragment_weather.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/rinat/Desktop/workplace/ExampleMvvm/app/src/main/res/layout/item_daily_forecast.xml" value="0.24010416666666667" />
       </map>
     </option>
   </component>

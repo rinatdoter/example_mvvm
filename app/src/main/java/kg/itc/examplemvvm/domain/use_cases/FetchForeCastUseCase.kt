@@ -13,7 +13,7 @@ class FetchForeCastUseCase @Inject constructor(
 ) {
 
     operator fun invoke(): Single<ForeCast> {
-        return foreCastRepo.getForeCast()
+        return foreCastRepo.getForeCastFromApi()
             .map {
                 it.toForeCast()
             }
